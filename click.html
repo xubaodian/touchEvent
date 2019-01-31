@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    #main{
+      width: 100%;
+      height: 300px;
+      background: blue;
+      color: white;
+      font-size: 20px;
+      text-align: center;
+    }
+  </style>
+  <!--引入事件-->
+  <script src="./EventUtil.js"></script>
+</head>
+<body style="font-size: 14px;">
+  <div id="main"></div>
+  <button id="test">接触左滑绑定</button>
+   <script>
+     //获取dom
+     let domContent = document.querySelector('#main');
+
+     //定义各类事件，为了可以解除事件绑定，事件回调不使用匿名函数
+     function handleClick() {
+       alert('点击事件');
+     }
+     function handleLeft() {
+       alert('左滑事件');
+     }
+     function handleRight() {
+       alert('右滑事件');
+     }
+     function handleUp() {
+       alert('下滑事件');
+     }
+     function handleDown() {
+       alert('上滑事件');
+     }
+     function handleLong() {
+       alert('长按事件');
+     }
+     //绑定点击事件
+     EventUtil.bindEvent(domContent, 'click', handleClick);
+     //绑定两次左滑事件
+     EventUtil.bindEvent(domContent, 'swipeleft', handleLeft);
+     EventUtil.bindEvent(domContent, 'swipeleft', handleLeft);
+     //绑定右滑事件
+     EventUtil.bindEvent(domContent, 'swiperight', handleRight);
+     //上滑事件
+     EventUtil.bindEvent(domContent, 'slideup', handleUp);
+     //下滑事件
+     EventUtil.bindEvent(domContent, 'slidedown', handleDown);
+     //长按点击事件
+     EventUtil.bindEvent(domContent, 'longpress', handleLong);
+
+     //接触绑定按钮
+     let btnTest = document.querySelector('#test');
+     function removeLeft() {
+       //接触左滑事件绑定
+       EventUtil.removeEvent(domContent, 'swipeleft', handleLeft);
+     }
+     //绑定点击事件
+     EventUtil.bindEvent(btnTest, 'click', removeLeft);
+   </script>
+</body>
+</html>
