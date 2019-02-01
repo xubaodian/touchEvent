@@ -27,7 +27,7 @@
 swipeleft是左滑事件，swiperight是右滑事件，slideup是上滑事件，slidedown下滑事件，click点击事件，longpress长按点击事件。<br>
 
 使用案例如下：<br>
-测试代码在click.html中,代码中有注释，可以看到如何应用这些模拟事件：
+测试代码在demo.html中,代码中有注释，可以看到如何应用这些模拟事件：
 测试效果如下:
 <img src="./touch.gif"><br>
 有疑问的可以留言或发送邮件至472784995@qq.com。
